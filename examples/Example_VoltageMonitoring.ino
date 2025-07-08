@@ -24,7 +24,7 @@ void setup() {
     while (!Serial) {
         ; // Warte auf Serial Monitor
     }
-    Serial.println("Starte Spannungsüberwachungs Beispiel...");
+    Serial.println("Starte Spannungsüberwachungsbeispiel...");
 
     // Konfiguriere die Spannungsüberwachung
     openLog.setVoltageMonitoring(VOLTAGE_ADC_PIN, VOLTAGE_DIVIDER_RATIO, BROWNOUT_THRESHOLD);

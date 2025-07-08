@@ -90,7 +90,7 @@ Der Parameter `ignoreRX` (Standardwert `0`) bestimmt, ob der OpenLog einen Notfa
 | `mode` | 0 (New Log) | 0 (New Log), 1 (Sequential Log), 2 (Command Mode) | Legt Betriebsmodus beim Start fest; Master muss sich anpassen oder Modus wechseln. |
 | `verb` | 1 (on) | 0 (off), 1 (on) | Steuert ausführliche Fehlermeldungen; Master muss Parsing entsprechend anpassen ( `!` vs. detaillierte Meldung). |
 | `echo` | On (im Befehlsmodus) | 0 (off), 1 (on) | Steuert Zeichenecho im Befehlsmodus; Deaktivierung (0) vereinfacht Parsing für Master. |
-| `ignoreRX` | 0 (enabled) | 0 (enabled), 1 (disabled) | Kontrolliert Notfall-Reset (RX an GND); `1` verhindert Hardware-Reset, nur `config.txt` kann Baudrate ändern. |
+| `ignoreRX` | 0 (enabled) | 0 (enabled), 1 (disabled) | Kontrolliert Notfall-Reset (RX an GND); `1` verhindert Hardware-Reset, nur `config.txt` kann danach die Baudrate ändern. |
 
 ## 4. Robuste Startsequenz für den ESP32-C3-Master
 

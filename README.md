@@ -1,6 +1,7 @@
 
 # OpenLogDriver - ATTN: WORK IN PROGRESS - README FILE INVALID
 
+REF: https://github.com/sparkfun/OpenLog
 
 ## 1. OpenLogDriver/src/OpenLogDriver.h
 

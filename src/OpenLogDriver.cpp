@@ -220,9 +220,7 @@ String OpenLogDriver::readLine(unsigned long timeoutMs) {
         if (_serial.available()) {
             char c = _serial.read();
             response += c;
-            if (c == '\n' |
-
-| c == '\r') { // Suche nach Zeilenende
+            if (c == '\n' || c == '\r') { // Suche nach Zeilenende
                 // Optional: Warte auf das zweite Zeichen des Zeilenumbruchs (CRLF)
                 if (c == '\r' && _serial.peek() == '\n') {
                     _serial.read(); // Lese das '\n'
@@ -255,9 +253,7 @@ OpenLogStatus OpenLogDriver::sendAndExpect(const String& data, const String& exp
 }
 
 OpenLogStatus OpenLogDriver::write(const String& data) {
-    if (_firmwareType == OpenLogFirmwareType::UNKNOWN |
-
-| _currentMode == OpenLogMode::ERROR_MODE) {
+    if (_firmwareType == OpenLogFirmwareType::UNKNOWN || _currentMode == OpenLogMode::ERROR_MODE) {
         return OpenLogStatus::ERROR; // OpenLog nicht initialisiert oder im Fehlerzustand
     }
 
@@ -282,9 +278,7 @@ OpenLogStatus OpenLogDriver::write(const char* data) {
 }
 
 OpenLogStatus OpenLogDriver::write(byte data) {
-    if (_firmwareType == OpenLogFirmwareType::UNKNOWN |
-
-| _currentMode == OpenLogMode::ERROR_MODE) {
+    if (_firmwareType == OpenLogFirmwareType::UNKNOWN || _currentMode == OpenLogMode::ERROR_MODE) {
         return OpenLogStatus::ERROR;
     }
     if (_firmwareType == OpenLogFirmwareType::OPENLOG_STANDARD && _currentMode!= OpenLogMode::LOGGING_MODE) {
@@ -340,9 +334,7 @@ OpenLogStatus OpenLogDriver::exitCommandMode() {
     Serial.println("OpenLogDriver: Versuche, Befehlsmodus zu verlassen (new log.txt)...");
     String response;
     OpenLogStatus status = sendCommand("new log.txt", response, 2000); // Längeres Timeout für Dateierstellung
-    if (status == OpenLogStatus::OK |
-
-| response.indexOf("<")!= -1) {
+    if (status == OpenLogStatus::OK || response.indexOf("<")!= -1) {
         _currentMode = OpenLogMode::LOGGING_MODE;
         Serial.println("OpenLogDriver: Erfolgreich in den Logging-Modus gewechselt.");
         return OpenLogStatus::OK;
@@ -560,9 +552,7 @@ void OpenLogDriver::setVoltageMonitoring(int adcPin, float voltageDividerRatio, 
 }
 
 OpenLogStatus OpenLogDriver::checkPowerStatus() {
-    if (!_voltageMonitoringEnabled |
-
-| _voltageAdcPin == -1) {
+    if (!_voltageMonitoringEnabled || _voltageAdcPin == -1) {
         return OpenLogStatus::NOT_SUPPORTED; // Spannungsüberwachung nicht konfiguriert
     }
 
@@ -584,4 +574,5 @@ OpenLogStatus OpenLogDriver::checkPowerStatus() {
         return OpenLogStatus::LOW_VOLTAGE_WARNING;
     }
     return OpenLogStatus::OK;
+}
 }

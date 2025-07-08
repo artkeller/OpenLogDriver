@@ -6,7 +6,7 @@
 // Definiere die Pins für die serielle Kommunikation und den Reset
 #define OPENLOG_RX_PIN 21 // ESP32 GPIO21 (RX1) -> OpenLog TXO
 #define OPENLOG_TX_PIN 20 // ESP32 GPIO20 (TX1) -> OpenLog RXI
-#define OPENLOG_DTR_GRN_PIN 10 // ESP33 GPIO10 -> OpenLog GRN (Reset)
+#define OPENLOG_DTR_GRN_PIN 10 // ESP32 GPIO10 -> OpenLog GRN (Reset)
 
 // Pins für die Spannungsüberwachung
 #define VOLTAGE_ADC_PIN 36 // Beispiel-ADC-Pin am ESP32 (GPIO36 ist ADC1_CHANNEL0)

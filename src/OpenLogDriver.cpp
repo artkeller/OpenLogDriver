@@ -3,7 +3,7 @@
 #include "OpenLogDriver.h"
 
 // Baudraten, die beim Sondieren versucht werden sollen (absteigend, da höhere Raten schneller fehlschlagen)
-const long BAUD_RATES = {115200, 57600, 38400, 19200, 9600, 4800, 2400};
+const long BAUD_RATES[] = {115200, 57600, 38400, 19200, 9600, 4800, 2400}; // HIER KORRIGIERT
 const int NUM_BAUD_RATES = sizeof(BAUD_RATES) / sizeof(BAUD_RATES[0]);
 
 // Standard-Escape-Sequenz für OpenLog (CTRL+z, 3x)

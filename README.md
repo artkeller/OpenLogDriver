@@ -1112,59 +1112,43 @@ For a detailed technical analysis of the problem, the proposed solutions, and th
 
 ### Features
 
-    Automatic Firmware Detection: Identifies OpenLog Standard, OpenLog_Light, and OpenLog_Minimal firmware variants.
-
-    Adaptive Baud Rate Negotiation: Automatically probes and synchronizes with the OpenLog's current baud rate.
-
-    Hardware Reset Control: Utilizes the DTR/GRN pin for deterministic OpenLog resets.
-
-    Intelligent Configuration: For OpenLog Standard firmware, automatically configures optimal settings (echo off, verbose off, logging mode) for embedded use.
-
-    Integrated Power Monitoring: Detects low voltage conditions and imminent brownouts, allowing for graceful logging termination and data synchronization to prevent corruption.
-
-    Robust Data Logging: Provides methods for reliable data writing and buffer synchronization.
-
-    SD Card Health Check: Basic checks for SD card status.
-
-    Comprehensive API: A well-defined C++ class for easy integration into ESP32 projects.
+* Automatic Firmware Detection: Identifies OpenLog Standard, OpenLog_Light, and OpenLog_Minimal firmware variants.
+* Adaptive Baud Rate Negotiation: Automatically probes and synchronizes with the OpenLog's current baud rate.
+* Hardware Reset Control: Utilizes the DTR/GRN pin for deterministic OpenLog resets.
+* Intelligent Configuration: For OpenLog Standard firmware, automatically configures optimal settings (echo off, verbose off, logging mode) for embedded use.
+* Integrated Power Monitoring: Detects low voltage conditions and imminent brownouts, allowing for graceful logging termination and data synchronization to prevent corruption.
+* Robust Data Logging: Provides methods for reliable data writing and buffer synchronization.
+* SD Card Health Check: Basic checks for SD card status.
+* Comprehensive API: A well-defined C++ class for easy integration into ESP32 projects.
 
 ### Hardware Setup
 
 To use this library, connect your ESP32-C3 to the SparkFun OpenLog as follows:
 
     ESP32-C3 GPIO21 (RX1) -> OpenLog TXO
-
     ESP32-C3 GPIO20 (TX1) -> OpenLog RXI
-
     ESP32-C3 GPIO10 -> OpenLog GRN (Reset Pin)
-
     ESP32-C3 3V3 -> OpenLog VCC
-
     ESP32-C3 GND -> OpenLog GND
 
 #### For voltage monitoring:
 
-    Connect a voltage divider network from your battery/VCC to an ESP32-C3 ADC pin (e.g., GPIO36). Ensure the voltage divider scales the input voltage to be within the ESP32's ADC input range (typically 0-3.3V).
+Connect a voltage divider network from your battery/VCC to an ESP32-C3 ADC pin (e.g., GPIO36). Ensure the voltage divider scales the input voltage to be within the ESP32's ADC input range (typically 0-3.3V).
 
 ### Installation
 
-    Download: Download this repository as a .zip file.
-
-    Arduino IDE: Open your Arduino IDE.
-
-    Add Library: Go to Sketch > Include Library > Add.ZIP Library... and select the downloaded .zip file.
-
-    Examples: The example sketches will be available under File > Examples > ESP32-C3 OpenLog Robust Driver.
+* Download: Download this repository as a .zip file.
+* Arduino IDE: Open your Arduino IDE.
+* Add Library: Go to Sketch > Include Library > Add.ZIP Library... and select the downloaded .zip file.
+* Examples: The example sketches will be available under File > Examples > ESP32-C3 OpenLog Robust Driver.
 
 ## Example Usage
 
 Refer to the examples provided in the examples/ directory:
 
-    Example_BasicLogging.ino: Demonstrates basic data logging.
-
-    Example_FirmwareDetection.ino: Shows how the driver automatically detects the OpenLog firmware type and adapts its behavior.
-
-    Example_VoltageMonitoring.ino: Illustrates the integrated power monitoring feature and graceful shutdown.
+* Example_BasicLogging.ino: Demonstrates basic data logging.
+* Example_FirmwareDetection.ino: Shows how the driver automatically detects the OpenLog firmware type and adapts its behavior.
+* Example_VoltageMonitoring.ino: Illustrates the integrated power monitoring feature and graceful shutdown.
 
 ## Author
 
